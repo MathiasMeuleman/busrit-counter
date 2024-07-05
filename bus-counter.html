@@ -1,0 +1,33 @@
+<html>
+<head>
+  <title>Zijn we er al??</title>
+  <script>
+  
+  const start = () => {
+  const length = 1327;
+  const startDist = length - 1221;
+  const speed = 100;
+  const interval = 1000;
+  const startTime = new Date("2024-07-05T19:48:00").getTime();
+
+  const div = document.getElementById("percentage")
+  let percentage = 8;
+	  setInterval(() => {
+		const currentTime = new Date().getTime();
+		const timeDelta = (currentTime - startTime) / 1000 / 60 / 60;
+		const distDelta = startDist + (speed * timeDelta);
+		percentage = Math.round((distDelta / length * 100) * 100) / 100;
+		div.textContent = percentage;
+	  }, interval);
+  };
+  </script>
+</head>
+<body>
+<h2>How far along are we?</h2>
+<p>We have had</p>
+<div><span id="percentage"></span><span>%</span></div>
+<p>of our journey</p>
+<script>start()</script>
+</div>
+</body>
+</html>
